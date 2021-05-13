@@ -2083,6 +2083,15 @@ class OtherTests(unittest.TestCase):
             return
         assert False
 
+    def test_session_with_cookie_based_authentication(self):
+
+        test_manager = JiraTestManager()
+        cookie_jira = JIRA(
+            test_manager.CI_JIRA_URL,
+            auth=(test_manager.CI_JIRA_ADMIN, test_manager.CI_JIRA_ADMIN_PASSWORD),
+        )
+        self.assertIn(test_manager.CI_JIRA_URL, cookie_jira.client_info())
+
 
 @flaky
 class SessionTests(unittest.TestCase):
