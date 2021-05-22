@@ -33,3 +33,4 @@ tests/test-reports-*/*
 /.pytest_cache
 /.vscode
 /node_modules
+root_key
